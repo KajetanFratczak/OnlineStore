@@ -1,132 +1,177 @@
-# Dokumentacja
+# Documentation
 
-## Temat projektu: Sklep Internetowy
+## Project Topic: Online Store
 
 ---
 
-### Setup projektu
-Projekt jest zbudowany przy użyciu **React** i **Node.js z Express**.
+### Project Setup
+The project is built using **React** and **Node.js with Express**.
 
 #### Frontend
 - React
 - React DOM
 - React Router DOM
-- Context API (zarządzanie stanem)
-- Axios (komunikacja z API)
+- Context API (state management)
+- Axios (API communication)
 
 #### Backend
 - Express.js
 - Mongoose
 - MongoDB
 - JSON Web Token (JWT)
-- Middleware autoryzacji użytkownika
+- User Authorization Middleware
 - CORS
 - Body Parser
 
 ---
 
-### Struktura projektu
+### How to Run
+
+#### Backend
+
+1. **Install Dependencies:**
+   Run the following command in the root directory:
+   ```bash
+   npm install
+   ```
+
+2. **Start the Server:**
+   You can start the server from the root directory using:
+   ```bash
+   npm start
+   ```
+   Or navigate to the `server/` directory and run:
+   ```bash
+   node server.js
+   ```
+
+   The server will run on `http://localhost:8080`.
+
+   **Note:** Ensure you have MongoDB running locally or update `server/.env` with your MongoDB URI.
+
+#### Frontend
+
+1. **Navigate to the Frontend Directory:**
+   ```bash
+   cd sklep_internetowy
+   ```
+
+2. **Install Dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the Development Server:**
+   ```bash
+   npm run dev
+   ```
+
+   The frontend will be available at the URL provided by Vite (typically `http://localhost:5173`).
+
+---
+
+### Project Structure
 
 #### Backend
 
 - **`server/`**:
   - **`config/`**:
-    - `database.js`: Łączenie aplikacji z bazą danych MongoDB przy użyciu biblioteki Mongoose.
-    - `seedDatabase.js`: Wypełnienie bazy MongoDB przykładowymi danymi.
+    - `database.js`: Connects the application to the MongoDB database using Mongoose.
+    - `seedDatabase.js`: Populates the MongoDB database with sample data.
 
   - **`middleware/`**:
-    - `auth.js`: Autoryzacja i weryfikacja roli użytkownika.
+    - `auth.js`: User authorization and role verification.
 
   - **`models/`**:
-    - Schematy Mongoose dla kolekcji: `Order`, `Product`, `Review`, `User`.
+    - Mongoose schemas for collections: `Order`, `Product`, `Review`, `User`.
 
   - **`routes/`**:
-    - Trasy Express.js:
-      - Zarządzanie zamówieniami.
-      - Zarządzanie produktami.
-      - Zarządzanie opiniami.
-      - Zarządzanie użytkownikami.
+    - Express.js routes:
+      - Order management.
+      - Product management.
+      - Review management.
+      - User management.
 
-  - `.env`: Definicja zmiennych środowiskowych.
-  - `server.js`: Konfiguracja serwera Express.js.
+  - `.env`: Environment variables definition.
+  - `server.js`: Express.js server configuration.
 
 #### Frontend
 
 - **`public/`**:
-  - `rotated_1.png`: Obrazek używany na stronie głównej.
+  - `rotated_1.png`: Image used on the homepage.
 
 - **`src/`**:
   - **`components/`**:
-    - `Cart.jsx`: Zarządzanie koszykiem i składanie zamówień.
-    - `Home.jsx`: Strona główna sklepu internetowego.
-    - `Layout.jsx`: Szablon strony.
-    - `Login.jsx`: Formularz logowania użytkownika.
-    - `NoPage.jsx`: Obsługa błędu 404.
-    - `OrderHistory.jsx`: Historia zamówień użytkownika.
-    - `ProductDetails.jsx`: Szczegóły produktu.
-    - `ProductReview.jsx`: Zarządzanie opiniami o produkcie.
-    - `Products.jsx`: Lista produktów z wyszukiwarką i filtrowaniem.
-    - `Profile.jsx`: Szczegóły profilu użytkownika.
-    - `Register.jsx`: Rejestracja nowego użytkownika.
-    - `SingleProduct.jsx`: Wyświetlanie pojedynczego produktu.
+    - `Cart.jsx`: Cart management and order placement.
+    - `Home.jsx`: Main page of the online store.
+    - `Layout.jsx`: Page layout template.
+    - `Login.jsx`: User login form.
+    - `NoPage.jsx`: 404 error handling.
+    - `OrderHistory.jsx`: User order history.
+    - `ProductDetails.jsx`: Product details.
+    - `ProductReview.jsx`: Product review management.
+    - `Products.jsx`: Product list with search and filtering.
+    - `Profile.jsx`: User profile details.
+    - `Register.jsx`: New user registration.
+    - `SingleProduct.jsx`: Single product display.
 
   - **`context/`**:
-    - `AuthContext.jsx`: Zarządzanie autentykacją użytkownika.
-    - `CartContext.jsx`: Zarządzanie koszykiem zakupowym.
+    - `AuthContext.jsx`: User authentication management.
+    - `CartContext.jsx`: Shopping cart management.
 
   - **`mocks/`**:
-    - `orders.js`: Przykładowe dane zamówień.
-    - `reviews.js`: Przykładowe opinie.
-    - `users.js`: Przykładowi użytkownicy.
+    - `orders.js`: Sample order data.
+    - `reviews.js`: Sample reviews.
+    - `users.js`: Sample users.
 
   - **`utils/`**:
-    - `api.js`: Funkcje do komunikacji z backendem.
+    - `api.js`: Functions for backend communication.
 
-  - **Inne pliki**:
-    - `App.css`: Style aplikacji.
-    - `App.jsx`: Główny komponent aplikacji.
-    - `main.jsx`: Punkt startowy aplikacji React.
-    - `ProtectedRoute.jsx`: Ochrona tras w aplikacji.
-
----
-
-### Znalezione błędy i propozycje poprawek
-
-1. **Problem**: Brak automatycznego odświeżania strony po dodaniu opinii.
-   **Rozwiązanie**: Implementacja automatycznego odświeżania komponentu.
-
-2. **Funkcjonalność**: Dodanie logo i nazwy użytkownika po zalogowaniu.
-
-3. **Funkcjonalność**: Implementacja panelu administratora.
-
-4. **Rozszerzenie**: Migracja danych użytkowników, zamówień i opinii z FakeStoreAPI do MongoDB oraz implementacja pełnych operacji CRUD.
+  - **Other files**:
+    - `App.css`: Application styles.
+    - `App.jsx`: Main application component.
+    - `main.jsx`: React application entry point.
+    - `ProtectedRoute.jsx`: Route protection in the application.
 
 ---
 
-### Aktualna implementacja
+### Identified Issues and Proposed Improvements
 
-- **Produkty**: Pełna integracja z MongoDB.
-- **Pozostałe elementy** (użytkownicy, zamówienia, opinie): Korzystają obecnie z FakeStoreAPI jako źródła danych.
+1. **Issue**: Page does not automatically refresh after adding a review.
+   **Solution**: Implement automatic component refresh.
 
-#### Operacje CRUD
+2. **Feature**: Add logo and username after logging in.
 
-##### Produkty (MongoDB):
-- **Tworzenie**: `POST /api/products`
-- **Odczyt**:
-  - Wszystkie produkty: `GET /api/products`
-  - Szczegóły produktu: `GET /api/products/:id`
+3. **Feature**: Implement an administrator panel.
 
-##### Użytkownicy (FakeStoreAPI):
-- **Rejestracja**: `POST /api/users/register`
-- **Logowanie**: `POST /api/users/login`
+4. **Enhancement**: Migrate user, order, and review data from FakeStoreAPI to MongoDB and implement full CRUD operations.
 
-##### Zamówienia (FakeStoreAPI):
-- **Tworzenie**: `POST /api/orders`
-- **Odczyt zamówień użytkownika**: `GET /api/orders/user/:user_id`
+---
 
-##### Opinie (FakeStoreAPI):
-- **Dodawanie**: `POST /api/reviews`
-- **Odczyt opinii produktu**: `GET /api/reviews/:productId`
-- **Usuwanie opinii**: `DELETE /api/reviews/:id`
+### Current Implementation
+
+- **Products**: Full integration with MongoDB.
+- **Other Elements** (users, orders, reviews): Currently use FakeStoreAPI as the data source.
+
+#### CRUD Operations
+
+##### Products (MongoDB):
+- **Create**: `POST /api/products`
+- **Read**:
+  - All products: `GET /api/products`
+  - Product details: `GET /api/products/:id`
+
+##### Users (FakeStoreAPI):
+- **Register**: `POST /api/users/register`
+- **Login**: `POST /api/users/login`
+
+##### Orders (FakeStoreAPI):
+- **Create**: `POST /api/orders`
+- **Read User Orders**: `GET /api/orders/user/:user_id`
+
+##### Reviews (FakeStoreAPI):
+- **Add**: `POST /api/reviews`
+- **Read Product Reviews**: `GET /api/reviews/:productId`
+- **Delete Review**: `DELETE /api/reviews/:id`
 
 ---
